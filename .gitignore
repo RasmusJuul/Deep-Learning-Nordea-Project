@@ -1,2 +1,4 @@
 /lq_virk
 /*.gz
+/Scripts/cache/
+/Scripts/__pycache__/
