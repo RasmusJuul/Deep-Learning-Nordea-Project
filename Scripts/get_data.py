@@ -5,6 +5,7 @@ Created on Wed Nov 13 15:29:44 2019
 @author: rasmu
 """
 import numpy as np
+
 try:
     from virk import *
     import liquer.ext.basic
@@ -27,10 +28,3 @@ for (i,cvr_nr) in enumerate(register_df['cvrNummer']):
             compInfo[i,j] = np.mean(temp[entry].dropna().values.astype('float'))
         except:
             compInfo[i,j] = 0
-
-# Attemt at getting data of one company from different years (not working)
-#cvr_nr = register_df['cvrNummer'][0]
-#date = register_df['regnskabsperiode_slutDato'][0].replace('-','')
-#date2 = str(int(date[:4])-1)+date[4:]
-#temp1 = cvrdf(register_df['cvrNummer'],day=date)
-#temp2 = cvrdf(register_df['cvrNummer'],day=date2)

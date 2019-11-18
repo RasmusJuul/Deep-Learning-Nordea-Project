@@ -2,3 +2,5 @@
 /*.gz
 /Scripts/cache/
 /Scripts/__pycache__/
+*.py
+/Scripts/.ipynb_checkpoints/
