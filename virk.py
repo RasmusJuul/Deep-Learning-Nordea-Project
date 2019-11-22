@@ -152,7 +152,8 @@ def tojson(xml):
         try:
             tag = etree.QName(elem.tag)
         except:
-            traceback.print_exc()
+            # Spam when downloading stuff !! # TODO
+            # traceback.print_exc()
             continue
         elem.tag = tag.localname
         d = {}
@@ -202,8 +203,10 @@ def json2df(doc, keep_multiline_values=False, init=None):
             if isinstance(keydata, list):
                 row = [r for r in keydata if r["contextRef"] == identifier]
                 if len(row) > 1:
-                    print(
-                        f"Warning: multiple context entries for {entity} {key}, context:{identifier}")
+                    pass
+                    # TODO kinda anoying
+                    # print(
+                    #     f"Warning: multiple context entries for {entity} {key}, context:{identifier}")
                 if len(row):
                     keydata = row[0]
                 else:
