@@ -21,7 +21,7 @@ data_save_path = "../data/"
 downloaded_company_specific_path = "../data/companies/"
 
 # Paths to save data to:
-savt_to_company_specific_path = "../data/filtered_data/"
+savt_to_company_specific_path = "../data/filtered_data_ord/"
 save_to_compnay_name_base = "{0}_data.csv"
 
 # Keep cache in case of crashing while working on it!
