@@ -2,6 +2,6 @@
 /*.gz
 /Scripts/cache/
 /Scripts/__pycache__/
-*.py
+!/*.py
 /Scripts/.ipynb_checkpoints/
 /Deep-Learning-Nordea-Project-master
