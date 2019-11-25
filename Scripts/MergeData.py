@@ -11,12 +11,12 @@ import os
 from tqdm import tqdm
 
 #companies = pd.read_csv("../Deep-Learning-Nordea-Project-master/data/companies_subset.csv")
-ls = os.listdir("../Deep-Learning-Nordea-Project-master/data/filtered_data")
+ls = os.listdir("../data/filtered_data_first")
 
 train = []
 target = []
 for j in tqdm(range(len(ls)), unit='companies'):
-    data = pd.read_csv("../Deep-Learning-Nordea-Project-master/data/filtered_data/{}".format(ls[j]))
+    data = pd.read_csv("../data/filtered_data_first/{}".format(ls[j]))
     
     data = data.sort_values(by=['Year'])
     

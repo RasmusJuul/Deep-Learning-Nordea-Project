@@ -17,14 +17,17 @@ except:
 
 
 register_df = register()
-idx = ['entity', 'GrossResult','GrossProfitLoss','ProfitLoss','Revenue','Assets']
-compInfo = np.empty((register_df.shape[0],len(idx)))
+temp = cvrdf(register_df['cvrNummer'].values[0])
+#temp = cvrdf('12425694')
 
-for (i,cvr_nr) in enumerate(register_df['cvrNummer']):
-    temp = cvrdf(cvr_nr)
-    for (j,entry) in enumerate(idx):
-        try:
-            temp2 = temp[entry]
-            compInfo[i,j] = np.mean(temp[entry].dropna().values.astype('float'))
-        except:
-            compInfo[i,j] = 0
+#idx = ['entity', 'GrossResult','GrossProfitLoss','ProfitLoss','Revenue','Assets']
+#compInfo = np.empty((register_df.shape[0],len(idx)))
+#
+#for (i,cvr_nr) in enumerate(register_df['cvrNummer']):
+#    temp = cvrdf(cvr_nr)
+#    for (j,entry) in enumerate(idx):
+#        try:
+#            temp2 = temp[entry]
+#            compInfo[i,j] = np.mean(temp[entry].dropna().values.astype('float'))
+#        except:
+#            compInfo[i,j] = 0
