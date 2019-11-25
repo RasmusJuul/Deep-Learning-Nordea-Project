@@ -1,0 +1,5 @@
+Year,Start_date,ProfitLoss,GrossResult,GrossProfitLoss,Revenue,Assets,AverageNumberOfEmployees,CurrentAssets,Equity,Inventories,AddressOfReportingEntityPostCodeIdentifier
+15,2012-10-01,11075.0,0.0,-6000.0,0.0,0.0,0.0,0.0,125000.0,0.0,9000.0
+15,2013-10-01,1178.0,0.0,-6000.0,0.0,0.0,0.0,0.0,-108569.0,0.0,9000.0
+16,2013-10-01,1177.0,0.0,-6000.0,0.0,0.0,0.0,0.0,0.0,0.0,9000.0
+16,2014-10-01,-4755.0,0.0,-6000.0,0.0,0.0,0.0,0.0,125000.0,0.0,9000.0
