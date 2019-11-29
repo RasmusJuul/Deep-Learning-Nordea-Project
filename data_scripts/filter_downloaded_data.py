@@ -8,6 +8,8 @@ import liquer.ext.lq_pandas
 from liquer.cache import FileCache, set_cache
 import os
 
+from tqdm import tqdm
+
 import random
 
 # temp imports
@@ -48,75 +50,73 @@ fields_we_want = ("entity",
                   # day_downloaded
                   )
 
-
-
 fields_we_want_sum = (
     # Financial data
     "ProfitLoss",
     "GrossResult",
     "GrossProfitLoss",
     "Revenue",
-    "Assets" ## can slo be: CurrentAssets
+    "Assets"  ## can slo be: CurrentAssets
     # day_downloaded
 )
 
 fields_we_want_first = (
     # Financial data
     "ProfitLoss",
-    "GrossResult",
+    # "GrossResult",
     "GrossProfitLoss",
-    "Revenue",
-    "Assets", ## can slo be: CurrentAssets
+    # "Revenue",
+    "Assets",  # can also be: CurrentAssets
     "AverageNumberOfEmployees",
     "CurrentAssets",
     "Equity",
-    "Inventories",
+    # "Inventories",
     "AddressOfReportingEntityPostCodeIdentifier"
     # day_downloaded
 )
 
-fields_others_are_using = {
+fields_others_are_using = (
     # PS
-"Revenue",
-"DepreciationAmortisationExpenseAndImpairmentLossesOfPropertyPlantAndEquipmentAndIntangibleAssetsRecognisedInProfitOrLoss",
-"EmployeeBenefitsExpense",
-"ExternalExpenses",
-"GrossProfitLoss",
-"GrossResult",
-"ImpairmentOfFinancialAssets",
-"OtherFinanceIncome",
-"ProfitLoss",
-"ProfitLossFromOrdinaryActivitiesBeforeTax",
-"ProfitLossFromOrdinaryOperatingActivities",
-"Provisions",
-"ProvisionsForDeferredTax",
-"ShorttermTaxPayables",
-"TaxExpense"
+    "Revenue",
+    "DepreciationAmortisationExpenseAndImpairmentLossesOfPropertyPlantAndEquipmentAndIntangibleAssetsRecognisedInProfitOrLoss",
+    "EmployeeBenefitsExpense",
+    "ExternalExpenses",
+    "GrossProfitLoss",
+    "GrossResult",
+    "ImpairmentOfFinancialAssets",
+    "OtherFinanceIncome",
+    "ProfitLoss",
+    "ProfitLossFromOrdinaryActivitiesBeforeTax",
+    "ProfitLossFromOrdinaryOperatingActivities",
+    "Provisions",
+    "ProvisionsForDeferredTax",
+    "ShorttermTaxPayables",
+    "TaxExpense"
     # BS
-"Assets",
-"CashAndCashEquivalents",
-"ContributedCapital",
-"CurrentAssets",
-"Equity",
-"LiabilitiesAndEquity",
-"LiabilitiesOtherThanProvisions",
-"LongtermInvestmentsAndReceivables",
-"NoncurrentAssets",
-"OtherLongtermInvestments",
-"OtherShorttermReceivables",
-"ProposedDividend",
-"ProposedDividendRecognisedInEquity",
-"RetainedEarnings",
-"ShorttermLiabilitiesOtherThanProvisions",
-"ShorttermReceivables",
-"CurrentDeferredTaxAssets",
-"FixturesFittingsToolsAndEquipment",
-"OtherShorttermPayables",
-"PropertyPlantAndEquipment",
-"ShorttermEquityLoan",
-"ShorttermPayablesToAssociates",
-"ShorttermTradePayables"
-}
+    "Assets",
+    "CashAndCashEquivalents",
+    "ContributedCapital",
+    "CurrentAssets",
+    "Equity",
+    "LiabilitiesAndEquity",
+    "LiabilitiesOtherThanProvisions",
+    "LongtermInvestmentsAndReceivables",
+    "NoncurrentAssets",
+    "OtherLongtermInvestments",
+    "OtherShorttermReceivables",
+    "ProposedDividend",
+    "ProposedDividendRecognisedInEquity",
+    "RetainedEarnings",
+    "ShorttermLiabilitiesOtherThanProvisions",
+    "ShorttermReceivables",
+    "CurrentDeferredTaxAssets",
+    "FixturesFittingsToolsAndEquipment",
+    "OtherShorttermPayables",
+    "PropertyPlantAndEquipment",
+    "ShorttermEquityLoan",
+    "ShorttermPayablesToAssociates",
+    "ShorttermTradePayables"
+)
 
 downloaded_campanies = list()
 if os.path.isfile(data_save_path + subset_companies_filename):
@@ -155,19 +155,19 @@ def load_data_and_filter_sum(cvr, fields=fields_we_want_sum):
     all_files = [f for f in os.listdir(cvr_path) if os.path.isfile(os.path.join(cvr_path, f))]
     file_rows__ = list()
     for file in all_files:
-        rep_data = pd.read_csv(cvr_path+file)
+        rep_data = pd.read_csv(cvr_path + file)
         day = file[-10:-8]
         columns__ = [day]
         for atribute in fields:
             temp_column = rep_data.get(atribute, pd.Series(index=rep_data.index, name=atribute))
             try:
-                to_Append_temp = temp_column.sum()/2
+                to_Append_temp = temp_column.sum() / 2
             except:
                 to_Append_temp = 0
             columns__.append(to_Append_temp)
         file_rows__.append(columns__)
     file_rows__.sort()
-    company_data = pd.DataFrame(file_rows__, columns=["Year"]+list(fields))
+    company_data = pd.DataFrame(file_rows__, columns=["Year"] + list(fields))
     with open(savt_to_company_specific_path + save_to_compnay_name_base.format(cvr), "w") as inp:
         company_data.to_csv(path_or_buf=inp, index=False)
 
@@ -178,20 +178,20 @@ def load_data_and_filter_first_num(cvr, fields=fields_we_want_first):
     all_files = [f for f in os.listdir(cvr_path) if os.path.isfile(os.path.join(cvr_path, f))]
     file_rows__ = list()
     for file in all_files:
-        rep_data = pd.read_csv(cvr_path+file)
+        rep_data = pd.read_csv(cvr_path + file)
         day = file[-10:-8]
         start_dates = list(rep_data.get("start_date", pd.Series(index=rep_data.index, name="start_date")))
         end_dates = list(rep_data.get("end_date", pd.Series(index=rep_data.index, name="end_date")))
-        unique_start_dates = sorted(set([i for i,j in zip(start_dates,end_dates) if i!=j]))
-        unique_end_dates = sorted(set([j for i, j in zip(start_dates, end_dates) if i != j]))
-        columns__ = [[day,unique_start_dates[i],unique_end_dates[i]] for i in range(len(unique_start_dates))]
+        unique_start_dates = sorted(set([i for i, j in zip(start_dates, end_dates) if i != j]))
+        # unique_end_dates = sorted(set([j for i, j in zip(start_dates, end_dates) if i != j]))
+        columns__ = [[day, unique_start_dates[i]] for i in range(len(unique_start_dates))]
         for atribute in fields:
             already_seen = [False for _ in range(len(unique_start_dates))]
             temp_vals = [0. for _ in range(len(unique_start_dates))]
             temp_column = rep_data.get(atribute, pd.Series(index=rep_data.index, name=atribute))
             index_non_first = temp_column.first_valid_index()
             if index_non_first is not None:
-                for index,indikator in temp_column.notnull().iteritems():
+                for index, indikator in temp_column.notnull().iteritems():
                     if indikator:
                         if start_dates[index] in unique_start_dates:
                             if not already_seen[unique_start_dates.index(start_dates[index])]:
@@ -201,13 +201,13 @@ def load_data_and_filter_first_num(cvr, fields=fields_we_want_first):
                     else:
                         # Not a number!!
                         pass
-            for i,tval in enumerate(temp_vals):
+            for i, tval in enumerate(temp_vals):
                 columns__[i].append(tval)
             asdwa = 7
         for col__ in columns__:
             file_rows__.append(col__)
     file_rows__.sort()
-    company_data = pd.DataFrame(file_rows__, columns=["Year","Start_date","End_date"]+list(fields))
+    company_data = pd.DataFrame(file_rows__, columns=["Year", "Start_date"] + list(fields))
     with open(savt_to_company_specific_path + save_to_compnay_name_base.format(cvr), "w") as inp:
         company_data.to_csv(path_or_buf=inp, index=False)
 
@@ -217,9 +217,16 @@ acc_percet = 20
 percent_done_break = len(downloaded_campanies) // acc_percet
 print(percent_done_break)
 j = 0
-for comp in downloaded_campanies:
-    if i % percent_done_break == 0:
-        print("{0}% Done".format(j * (100 // acc_percet)))
-        j+=1
-    load_data_and_filter_first_num(comp)
-    i += 1
+failed = 0
+
+for comp in tqdm(downloaded_campanies, unit='companies'):
+    # if i % percent_done_break == 0:
+    #     print("{0}% Done".format(j * (100 // acc_percet)))
+    #     j+=1
+    try:
+        load_data_and_filter_first_num(comp,fields_we_want_first)
+    except:
+        failed += 1
+    # i += 1
+
+print("Failed: ", failed)
