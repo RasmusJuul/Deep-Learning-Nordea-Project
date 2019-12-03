@@ -27,7 +27,7 @@ subset_companies_filename = "companies_subset.csv"
 
 
 # Subset size (We always add aditional that many companies!!)
-subset_size = 1500
+subset_size = 939
 
 fields_we_want = ("entity",
                   "start_date",
@@ -136,7 +136,10 @@ while added_companies_count < subset_size:
     com = companies_all_list[i]
     # print(com)
     if com not in already_downloaded:
-        download_save(com,all_valid_companies[com])
+        try:
+            download_save(com,all_valid_companies[com])
+        except:
+            pass
         if i%part_size == 0:
             print("{0}% Done".format(part_index*5))
             print(i)

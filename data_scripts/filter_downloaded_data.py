@@ -23,7 +23,7 @@ data_save_path = "../data/"
 downloaded_company_specific_path = "../data/companies/"
 
 # Paths to save data to:
-savt_to_company_specific_path = "../data/filtered_data_first_year/"
+savt_to_company_specific_path = "../data/filtered_data_grouped/"
 save_to_compnay_name_base = "{0}_data.csv"
 
 # Keep cache in case of crashing while working on it!
@@ -74,6 +74,15 @@ fields_we_want_first = (
     "AddressOfReportingEntityPostCodeIdentifier"
     # day_downloaded
 )
+
+fields_we_want_first_group = [
+    ["ProfitLoss"],
+    ["GrossResult", "GrossProfitLoss"],
+    ["Assets", "CurrentAssets"],
+    ["AverageNumberOfEmployees"],
+    ["Equity"],
+    ["AddressOfReportingEntityPostCodeIdentifier"]
+]
 
 fields_others_are_using = (
     # PS
@@ -212,21 +221,75 @@ def load_data_and_filter_first_num(cvr, fields=fields_we_want_first):
         company_data.to_csv(path_or_buf=inp, index=False)
 
 
+def load_data_and_filter_group(cvr, fields_group=fields_we_want_first_group):
+    cvr_path = downloaded_company_specific_path + str(cvr) + "/"
+    # all_files = os.listdir(cvr_path)
+    all_files = [f for f in os.listdir(cvr_path) if os.path.isfile(os.path.join(cvr_path, f))]
+    file_rows__ = list()
+    for file in all_files:
+        rep_data = pd.read_csv(cvr_path + file)
+        day = file[-10:-8]
+        start_dates = list(rep_data.get("start_date", pd.Series(index=rep_data.index, name="start_date")))
+        end_dates = list(rep_data.get("end_date", pd.Series(index=rep_data.index, name="end_date")))
+        unique_start_dates = sorted(set([i for i, j in zip(start_dates, end_dates) if i != j]))
+
+        # print("More than two years !!!: ",cvr)
+
+        # unique_end_dates = sorted(set([j for i, j in zip(start_dates, end_dates) if i != j]))
+        columns__ = [[day, unique_start_dates[i]] for i in range(len(unique_start_dates))]
+        for atributes in fields_group:
+            atribute_group_seen = False
+            already_seen = [False for _ in range(len(unique_start_dates))]
+            temp_vals = [0. for _ in range(len(unique_start_dates))]
+            for atribute in atributes:
+                temp_column = rep_data.get(atribute, pd.Series(index=rep_data.index, name=atribute))
+                index_non_first = temp_column.first_valid_index()
+                if index_non_first is not None and atribute_group_seen is False:
+                    atribute_group_seen = True
+                    for index, indikator in temp_column.notnull().iteritems():
+                        if indikator:
+                            if start_dates[index] in unique_start_dates:
+                                if not already_seen[unique_start_dates.index(start_dates[index])]:
+                                    already_seen[unique_start_dates.index(start_dates[index])] = True
+                                    temp_vals[unique_start_dates.index(start_dates[index])] = temp_column[index]
+
+                        else:
+                            # Not a number!!
+                            pass
+            for i, tval in enumerate(temp_vals):
+                columns__[i].append(tval)
+        for col__ in columns__:
+            file_rows__.append(col__)
+    file_rows__.sort(reverse=True)
+    file_rows___ = list()
+    # Filter out "repeating" rows
+    seen_years = set()
+    for row in file_rows__:
+        if row[0] not in seen_years:
+            seen_years.add(row[0])
+            file_rows___.append(row)
+    file_rows___.append(file_rows__[-1])
+    file_rows___.sort()
+    company_data = pd.DataFrame(file_rows___, columns=["Year", "Start_date"] + [i[0] for i in fields_group])
+    with open(savt_to_company_specific_path + save_to_compnay_name_base.format(cvr), "w") as inp:
+        company_data.to_csv(path_or_buf=inp, index=False)
+
+
 i = 0
 acc_percet = 20
 percent_done_break = len(downloaded_campanies) // acc_percet
-print(percent_done_break)
+# print(percent_done_break)
 j = 0
 failed = 0
+failed_company_list = list()
 
+print("Filtering the data:")
 for comp in tqdm(downloaded_campanies, unit='companies'):
-    # if i % percent_done_break == 0:
-    #     print("{0}% Done".format(j * (100 // acc_percet)))
-    #     j+=1
     try:
-        load_data_and_filter_first_num(comp,fields_we_want_first)
+        load_data_and_filter_group(comp)
     except:
         failed += 1
-    # i += 1
+        failed_company_list.append(comp)
 
 print("Failed: ", failed)
+pprint.pprint(failed_company_list)
