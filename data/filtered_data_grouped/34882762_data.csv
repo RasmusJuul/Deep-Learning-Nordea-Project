@@ -1,0 +1,6 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+14,2011-12-01,129636.0,0.0,691814.0,0.0,209636.0,"<p xmlns=""http://www.w3.org/1999/xhtml"">1552</p><p xmlns=""http://www.w3.org/1999/xhtml"">1159</p>"
+14,2012-12-01,129636.0,691814.0,209636.0,"<p xmlns=""http://www.w3.org/1999/xhtml"">1552</p><p xmlns=""http://www.w3.org/1999/xhtml"">1159</p>",,
+15,2014-01-01,205695.0,0.0,3173559.0,0.0,415331.0,1552.0
+16,2015-01-01,181099.0,0.0,4993240.0,0.0,596430.0,1552.0
+19,2018-01-01,1259260.0,7634063.0,8050623.0,0.0,4485765.0,0.0

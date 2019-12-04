@@ -1,0 +1,6 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+13,2011-01-01,-448000.0,0.0,657000.0,0.0,0.0,0.0
+13,2012-01-01,82078.0,0.0,0.0,0.0,125000.0,0.0
+14,2013-01-01,116570.0,114357.0,0.0,0.0,125000.0,5500  Middelfart
+15,2014-01-01,-8068.0,0.0,0.0,0.0,125000.0,5500  Middelfart
+16,2015-01-01,246398.0,0.0,0.0,0.0,125000.0,5500 Middelfart

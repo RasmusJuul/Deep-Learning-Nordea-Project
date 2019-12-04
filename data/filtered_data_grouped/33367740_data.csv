@@ -1,0 +1,6 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+13,2011-01-01,-44000.0,0.0,250000.0,0.0,0.0,0.0
+13,2012-01-01,12246.0,0.0,0.0,0.0,125000.0,0.0
+16,2015-01-01,359111.0,0.0,0.0,0.0,125000.0,7250 Hejnsvig
+17,2016-01-01,350568.0,0.0,0.0,0.0,125000.0,7250 Hejnsvig
+18,2017-01-01,364087.0,-10063.0,1746013.0,0.0,1182974.0,7250.0

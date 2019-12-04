@@ -17,8 +17,16 @@ except:
 
 
 register_df = register()
-temp = cvrdf(register_df['cvrNummer'].values[0])
-#temp = cvrdf('12425694')
+#temp = []
+#employ = []
+#for i in range(len(register_df)):
+#    temp.append(cvrdf(register_df['cvrNummer'].values[i]))
+#    try:
+#        temp[i]['AverageNumberOfEmployees']
+#        employ.append(1)
+#    except:
+#        employ.append(0)
+temp = cvrdf(register_df['cvrNummer'].values[2])
 
 #idx = ['entity', 'GrossResult','GrossProfitLoss','ProfitLoss','Revenue','Assets']
 #compInfo = np.empty((register_df.shape[0],len(idx)))

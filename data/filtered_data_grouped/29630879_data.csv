@@ -1,0 +1,7 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+14,2012-01-01,27000.0,852000.0,835000.0,0.0,0.0,6000  Kolding
+14,2013-01-01,-543226.0,311265.0,0.0,0.0,500000.0,6000  Kolding
+15,2014-01-01,-141073.0,-45841.0,0.0,0.0,500000.0,6000  Kolding
+17,2016-01-01,68497.0,191234.0,0.0,0.0,500000.0,6000 Kolding
+18,2017-01-01,45601.0,130875.0,0.0,1.0,500000.0,6000 Kolding
+19,2018-01-01,35419.0,109824.0,0.0,1.0,500000.0,6000 Kolding

@@ -145,4 +145,3 @@ while added_companies_count < subset_size:
     else:
         pass
     i += 1
-
