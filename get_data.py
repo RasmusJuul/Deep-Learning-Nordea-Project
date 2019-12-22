@@ -12,10 +12,11 @@ import pprint
 data_save_path = "data/"
 
 # Keep cache in case of crashing while working on it!
-set_cache(FileCache("cache"))
+# set_cache(FileCache("cache"))
 
 # Years interested in
-years = [2012,2013,2014,2015,2016,2017,2018,2019]
+# years = [2012,2013,2014,2015,2016,2017,2018,2019]
+years = [2019]
 
 for year in years:
     # First get unique CVR numbers

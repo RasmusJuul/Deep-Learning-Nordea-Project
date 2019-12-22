@@ -7,6 +7,7 @@ import liquer.ext.basic
 import liquer.ext.lq_pandas
 from liquer.cache import FileCache, set_cache
 import os
+from tqdm import tqdm
 
 import random
 
@@ -27,7 +28,7 @@ subset_companies_filename = "companies_subset.csv"
 
 
 # Subset size (We always add aditional that many companies!!)
-subset_size = 939
+subset_size = 517
 
 fields_we_want = ("entity",
                   "start_date",
@@ -125,27 +126,21 @@ random.shuffle(companies_all_list)
 
 i = 0
 i = int(input())
-part_size = subset_size//20
-part_index = 0
-added_companies_count = 0
 
 # pprint.pprint(already_downloaded)
 
 # subset of companies
-while added_companies_count < subset_size:
+for _ in tqdm(range(subset_size), unit="Company"):
     com = companies_all_list[i]
+    while com in already_downloaded:
+        i+=1
+        com = companies_all_list[i]
     # print(com)
     if com not in already_downloaded:
         try:
             download_save(com,all_valid_companies[com])
+            already_downloaded.add(com)
         except:
-            pass
-        if i%part_size == 0:
-            print("{0}% Done".format(part_index*5))
-            print(i)
-            part_index += 1
-        added_companies_count += 1
-    else:
-        pass
-    i += 1
+            i+=1
+
 

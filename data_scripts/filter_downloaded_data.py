@@ -76,13 +76,16 @@ fields_we_want_first = (
 )
 
 fields_we_want_first_group = [
-    ["ProfitLoss"],
+    ["ProfitLoss"], # ProfitLossFromOrdinaryOperatingActivities
     ["GrossResult", "GrossProfitLoss"],
     ["Assets", "CurrentAssets"],
     ["AverageNumberOfEmployees"],
     ["Equity"],
     ["AddressOfReportingEntityPostCodeIdentifier"]
+    # EmployeeBenefitsExpense
 ]
+
+# "ProfitLossFromOrdinaryActivitiesBeforeTax"
 
 fields_others_are_using = (
     # PS
@@ -233,6 +236,8 @@ def load_data_and_filter_group(cvr, fields_group=fields_we_want_first_group):
         end_dates = list(rep_data.get("end_date", pd.Series(index=rep_data.index, name="end_date")))
         unique_start_dates = sorted(set([i for i, j in zip(start_dates, end_dates) if i != j]))
 
+        other_unique_dates = sorted(set([i for i, j in zip(start_dates, end_dates) if i == j]))
+
         # print("More than two years !!!: ",cvr)
 
         # unique_end_dates = sorted(set([j for i, j in zip(start_dates, end_dates) if i != j]))
@@ -241,6 +246,10 @@ def load_data_and_filter_group(cvr, fields_group=fields_we_want_first_group):
             atribute_group_seen = False
             already_seen = [False for _ in range(len(unique_start_dates))]
             temp_vals = [0. for _ in range(len(unique_start_dates))]
+
+            already_seen_alt = [False for _ in range(max(len(other_unique_dates),len(unique_start_dates)))]
+            temp_vals_alt = [0. for _ in range(max(len(other_unique_dates),len(unique_start_dates)))]
+            no_atribute_on_date = True
             for atribute in atributes:
                 temp_column = rep_data.get(atribute, pd.Series(index=rep_data.index, name=atribute))
                 index_non_first = temp_column.first_valid_index()
@@ -249,13 +258,23 @@ def load_data_and_filter_group(cvr, fields_group=fields_we_want_first_group):
                     for index, indikator in temp_column.notnull().iteritems():
                         if indikator:
                             if start_dates[index] in unique_start_dates:
+                                no_atribute_on_date = False
                                 if not already_seen[unique_start_dates.index(start_dates[index])]:
                                     already_seen[unique_start_dates.index(start_dates[index])] = True
                                     temp_vals[unique_start_dates.index(start_dates[index])] = temp_column[index]
+                            else:
+                                # the start date is not in uique start dates, check for only one day reports
+                                if not already_seen_alt[other_unique_dates.index(start_dates[index])]:
+                                    already_seen_alt[other_unique_dates.index(start_dates[index])] = True
+                                    temp_vals_alt[other_unique_dates.index(start_dates[index])] = temp_column[index]
 
                         else:
                             # Not a number!!
                             pass
+            if no_atribute_on_date:
+                ttemp = temp_vals_alt[:len(temp_vals)]
+                temp_vals = ttemp
+                print("Other dates vals!")
             for i, tval in enumerate(temp_vals):
                 columns__[i].append(tval)
         for col__ in columns__:
