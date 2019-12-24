@@ -1,9 +1,0 @@
-Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
-13,2011-01-01,29761.0,0.0,375000.0,0.0,0.0,0.0
-13,2012-01-01,26172.0,0.0,0.0,0.0,125000.0,0.0
-14,2013-01-01,25259.0,0.0,0.0,0.0,125000.0,9330  Dronninglund
-15,2014-01-01,100091.0,0.0,0.0,0.0,125000.0,9330  Dronninglund
-16,2015-01-01,211905.0,0.0,0.0,0.0,125000.0,9330  Dronninglund
-17,2016-01-01,128055.0,0.0,0.0,0.0,125000.0,9330 Dronninglund
-18,2017-01-01,272139.0,0.0,0.0,1.0,125000.0,9330 Dronninglund
-19,2018-01-01,232718.0,0.0,0.0,1.0,125000.0,9330 Dronninglund

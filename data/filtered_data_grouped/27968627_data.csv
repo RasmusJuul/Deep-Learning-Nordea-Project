@@ -1,9 +1,0 @@
-Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
-13,2011-01-01,73000.0,0.0,1791000.0,0.0,0.0,0.0
-13,2012-01-01,120297.0,0.0,0.0,0.0,125000.0,0.0
-14,2013-01-01,83166.0,0.0,0.0,0.0,125000.0,8660  Skanderborg
-15,2014-01-01,109416.0,0.0,0.0,0.0,125000.0,8660  Skanderborg
-16,2015-01-01,90878.0,0.0,0.0,0.0,125000.0,8660 Skanderborg
-17,2016-01-01,51135.0,0.0,0.0,0.0,125000.0,8660 Skanderborg
-18,2017-01-01,57966.0,0.0,0.0,1.0,125000.0,8660 Skanderborg
-19,2018-01-01,-18210.0,0.0,0.0,1.0,125000.0,8660 Skanderborg

@@ -1,7 +1,0 @@
-Year,Start_date,ProfitLoss,GrossResult,GrossProfitLoss,Revenue,Assets,AverageNumberOfEmployees,CurrentAssets,Equity,Inventories,AddressOfReportingEntityPostCodeIdentifier
-13,2011-01-01,0.0,0.0,0.0,-736968.0,0.0,0.0,0.0,0.0,0.0,0.0
-13,2012-01-01,0.0,0.0,0.0,-720115.0,0.0,0.0,0.0,0.0,0.0,0.0
-14,2013-01-01,3309.0,0.0,0.0,0.0,262509.0,0.0,207065.0,135833.0,5000.0,2770  Kastrup
-15,2014-01-01,89076.0,0.0,0.0,0.0,356399.0,0.0,312043.0,224909.0,5000.0,2770  Kastrup
-17,2015-01-01,6368.0,0.0,349718.0,0.0,0.0,0.0,0.0,0.0,0.0,2770  Kastrup
-17,2016-01-01,-37869.0,0.0,349800.0,0.0,0.0,0.0,0.0,0.0,0.0,2770  Kastrup
