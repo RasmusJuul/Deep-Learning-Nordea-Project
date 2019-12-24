@@ -1,0 +1,7 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+13,2011-01-01,71189.0,135288.0,1593752.0,0.0,0.0,0.0
+13,2012-01-01,3993.0,58328.0,0.0,0.0,125000.0,0.0
+14,2013-01-01,63533.0,63196.0,0.0,0.0,125000.0,7361  Ejstrupholm
+15,2014-01-01,-175399.0,89979.0,0.0,0.0,125000.0,7361  Ejstrupholm
+16,2015-01-01,9444.0,38290.0,0.0,0.0,125000.0,7361 Ejstrupholm
+17,2016-01-01,-12053.0,19967.0,0.0,0.0,125000.0,7361 Ejstrupholm

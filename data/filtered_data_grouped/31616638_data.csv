@@ -1,0 +1,6 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+14,2012-10-01,49817.0,-4375.0,261355.0,0.0,207988.0,6670.0
+14,2013-10-01,44312.0,-4500.0,257367.0,0.0,203100.0,6670.0
+16,2015-10-01,-2502.0,-11875.0,0.0,0.0,125000.0,6670 Holsted
+17,2016-10-01,-1348.0,-9875.0,0.0,0.0,125000.0,6670 Holsted
+19,2017-10-01,-282.0,-6563.0,0.0,1.0,125000.0,6670 Holsted

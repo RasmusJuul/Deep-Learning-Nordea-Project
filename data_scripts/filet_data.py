@@ -9,12 +9,10 @@ from liquer.cache import FileCache, set_cache
 # temp imports
 import pprint
 
-from tqdm import tqdm
-
 data_save_path = "../data/"
 
 # Keep cache in case of crashing while working on it!
-# set_cache(FileCache("../cache_temp"))
+set_cache(FileCache("../cache_temp"))
 
 # Years interested in
 years = [2012,2013,2014,2015,2016,2017,2018,2019]
@@ -55,6 +53,9 @@ for year in years:
                             fails += 1
                             fails_list.append((company,date_rep))
                             # print("Fail: ", company, date_rep)
+                                print("Empty data")
+                        except:
+                            print("Fail: ", company, date_rep)
                             pass
                         # print(rep_data.shape)
                 else:

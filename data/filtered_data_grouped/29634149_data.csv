@@ -1,0 +1,6 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+12,2010-07-01,41888.0,737037.0,1965962.0,0.0,0.0,0.0
+12,2011-07-01,-297656.0,505977.0,0.0,0.0,125000.0,0.0
+13,2012-07-01,-147126.0,717941.0,0.0,0.0,125000.0,8520  Lystrup
+15,2014-07-01,-41623.0,475696.0,0.0,0.0,125000.0,8520  Lystrup
+16,2015-01-01,699516.0,1792840.0,0.0,0.0,125000.0,8520 Lystrup

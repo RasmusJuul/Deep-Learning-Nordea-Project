@@ -1,0 +1,6 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+13,2011-01-01,43053.0,8734.0,1180547.0,0.0,0.0,0.0
+13,2012-01-01,30589.0,-3893.0,0.0,0.0,200000.0,0.0
+14,2013-01-01,23149.0,953.0,0.0,0.0,200000.0,5000  Odense C
+17,2016-01-01,52022.0,1425.0,0.0,0.0,200000.0,5690 Tommerup
+19,2018-01-01,55640.0,569.0,0.0,3.0,200000.0,5230 Odense M

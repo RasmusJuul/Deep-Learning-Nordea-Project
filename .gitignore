@@ -104,3 +104,11 @@ venv.bak/
 .mypy_cache/
 
 cashe/
+
+/lq_virk
+/*.gz
+/Scripts/cache/
+/Scripts/__pycache__/
+!/*.py
+/Scripts/.ipynb_checkpoints/
+/Deep-Learning-Nordea-Project-master

@@ -1,0 +1,5 @@
+Year,ProfitLoss,GrossResult,GrossProfitLoss,Revenue,Assets,AverageNumberOfEmployees,CurrentAssets,Equity,Inventories,AddressOfReportingEntityPostCodeIdentifier
+13,-1000.0,0.0,589000.0,0.0,279000.0,1.0,279000.0,125000.0,0.0,0.0
+15,-28000.0,0.0,-14000.0,0.0,78000.0,0.0,78000.0,125000.0,0.0,2942.0
+17,81000.0,0.0,-43000.0,0.0,8719000.0,2.0,1101000.0,125000.0,0.0,2942.0
+18,-2045000.0,0.0,-26000.0,0.0,10549000.0,2.0,840000.0,125000.0,0.0,2942.0

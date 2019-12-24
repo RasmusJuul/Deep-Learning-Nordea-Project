@@ -1,0 +1,5 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+15,2013-01-01,121548.0,-11132.0,2755448.0,0.0,2581210.0,3050.0
+15,2014-01-01,198738.0,-11532.0,2757355.0,0.0,2704948.0,3050.0
+16,2015-01-01,53872.0,-12417.0,0.0,0.0,125000.0,3050.0
+19,2018-01-01,-98233.0,-14600.0,0.0,0.0,-125000.0,0.0

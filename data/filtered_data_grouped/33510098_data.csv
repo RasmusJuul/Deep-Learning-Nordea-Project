@@ -1,0 +1,7 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+13,2011-01-01,1000.0,-66000.0,453000.0,0.0,0.0,0.0
+13,2012-01-01,6421.0,-3568.0,0.0,0.0,80000.0,0.0
+14,2013-01-01,41248.0,55672.0,0.0,0.0,80000.0,2900  Hellerup
+15,2014-01-01,2274.0,-5938.0,0.0,0.0,80000.0,2900  Hellerup
+17,2016-01-01,4450.0,0.0,0.0,0.0,80000.0,2900 Hellerup
+19,2018-01-01,2417.0,0.0,0.0,1.0,80000.0,2900 Hellerup

@@ -1,0 +1,8 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+13,2011-01-01,32663.0,63506.0,1358158.0,0.0,0.0,0.0
+13,2012-01-01,-53516.0,-8204.0,0.0,0.0,125000.0,0.0
+15,2014-01-01,-133065.0,-13647.0,0.0,0.0,250000.0,9900 Frederikshavn
+16,2015-01-01,-18190.0,21179.0,0.0,0.0,250000.0,9900 Frederikshavn
+17,2016-01-01,-96035.0,-21259.0,0.0,0.0,300000.0,9900 Frederikshavn
+18,2017-01-01,7714.0,87191.0,0.0,1.0,300000.0,9900 Frederikshavn
+19,2018-01-01,-64160.0,1398.0,0.0,1.0,300000.0,9900 Frederikshavn

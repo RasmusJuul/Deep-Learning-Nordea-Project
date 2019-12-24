@@ -1,0 +1,8 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+14,2013-01-01,75987.0,0.0,148281.0,0.0,121993.0,2000  Frederiksberg
+14,2013-01-01,75987.0,0.0,148281.0,0.0,121993.0,2000  Frederiksberg
+15,2014-01-01,-405.0,0.0,121741.0,0.0,121587.0,2000  Frederiksberg
+16,2015-01-01,-346.0,-129.0,328454.0,0.0,121242.0,2000  Frederiksberg
+17,2016-01-01,196469.0,255412.0,396495.0,0.0,317711.0,2000  Frederiksberg
+18,2017-01-01,7319.0,577700.0,396495.0,0.0,317711.0,2000  Frederiksberg
+19,2018-01-01,-199468.0,1307628.0,668349.0,0.0,325030.0,2000 Frederiksberg

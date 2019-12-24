@@ -1,0 +1,7 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+13,2011-01-01,30598.0,0.0,1549415.0,0.0,0.0,0.0
+13,2012-01-01,64383.0,0.0,0.0,0.0,125000.0,0.0
+14,2013-01-01,-348480.0,0.0,0.0,0.0,125000.0,6070  Christiansfeld
+16,2015-01-01,1843.0,950.0,0.0,0.0,125000.0,6070 Christiansfeld
+17,2016-01-01,184101.0,-5366.0,0.0,0.0,125000.0,6070 Christiansfeld
+18,2017-01-01,-300651.0,-5621.0,0.0,0.0,125000.0,6070 Christiansfeld

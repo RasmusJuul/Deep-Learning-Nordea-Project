@@ -1,0 +1,6 @@
+Year,Start_date,ProfitLoss,GrossResult,Assets,AverageNumberOfEmployees,Equity,AddressOfReportingEntityPostCodeIdentifier
+13,2010-08-09,73746.0,-295643.0,572173.0,0.0,-153746.0,0.0
+13,2012-01-01,-781115.0,533333.0,1039535.0,0.0,627369.0,0.0
+15,2014-01-01,-462354.0,-306260.0,0.0,0.0,80000.0,9000  Aalborg
+16,2015-01-01,-520592.0,-251021.0,0.0,0.0,80000.0,9000 Aalborg
+17,2016-01-01,-490049.0,-375219.0,0.0,0.0,80000.0,9000 Aalborg

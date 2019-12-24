@@ -28,7 +28,7 @@ subset_companies_filename = "companies_subset.csv"
 
 
 # Subset size (We always add aditional that many companies!!)
-subset_size = 517
+subset_size = 500
 
 fields_we_want = ("entity",
                   "start_date",

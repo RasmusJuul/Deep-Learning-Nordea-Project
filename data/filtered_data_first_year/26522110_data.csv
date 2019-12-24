@@ -1,0 +1,9 @@
+Year,Start_date,ProfitLoss,GrossResult,GrossProfitLoss,Revenue,Assets,AverageNumberOfEmployees,CurrentAssets,Equity,Inventories,AddressOfReportingEntityPostCodeIdentifier
+13,2011-07-01,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2650 Hvidovre
+13,2012-07-01,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2650 Hvidovre
+14,2012-07-01,-495594.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2650 Hvidovre
+14,2013-07-01,53477.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2650 Hvidovre
+15,2013-07-01,53477.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4000 Roskilde
+15,2014-07-01,759043.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4000 Roskilde
+16,2014-07-01,759043.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4000 Roskilde
+16,2015-07-01,169818.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,4000 Roskilde
