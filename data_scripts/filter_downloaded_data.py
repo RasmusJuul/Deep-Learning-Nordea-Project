@@ -23,11 +23,11 @@ data_save_path = "../data/"
 downloaded_company_specific_path = "../data/companies/"
 
 # Paths to save data to:
-savt_to_company_specific_path = "../data/filtered_data_grouped/"
+savt_to_company_specific_path = "../data/filtered_data_grouped_23k/"
 save_to_compnay_name_base = "{0}_data.csv"
 
 # Keep cache in case of crashing while working on it!
-set_cache(FileCache("../cache_working_subset"))
+# set_cache(FileCache("../cache_working_subset"))
 
 subset_companies_filename = "companies_subset.csv"
 
@@ -274,7 +274,7 @@ def load_data_and_filter_group(cvr, fields_group=fields_we_want_first_group):
             if no_atribute_on_date:
                 ttemp = temp_vals_alt[:len(temp_vals)]
                 temp_vals = ttemp
-                print("Other dates vals!")
+                # print("Other dates vals!")
             for i, tval in enumerate(temp_vals):
                 columns__[i].append(tval)
         for col__ in columns__:
@@ -302,13 +302,25 @@ j = 0
 failed = 0
 failed_company_list = list()
 
+all_companies = [f for f in os.listdir(downloaded_company_specific_path) if not os.path.isfile(os.path.join(downloaded_company_specific_path, f))]
+# print(all_companies)
+print(len(all_companies))
 print("Filtering the data:")
-for comp in tqdm(downloaded_campanies, unit='companies'):
+
+all_companies_csv_file = "Company \n"
+for comp in tqdm(all_companies, unit='companies'):
     try:
         load_data_and_filter_group(comp)
+        all_companies_csv_file += str(comp) + "\n"
+        # print(failed)
     except:
         failed += 1
         failed_company_list.append(comp)
+
+
+all_companies_csv_file_name = "company_subset_{0}.csv".format(len(all_companies))
+with open(data_save_path+all_companies_csv_file_name,"r") as oout_file_all:
+    oout_file_all.write(all_companies_csv_file)
 
 print("Failed: ", failed)
 pprint.pprint(failed_company_list)
