@@ -104,7 +104,7 @@ venv.bak/
 .mypy_cache/
 
 cashe/
-
+/data/filtered_data_grouped_23k
 /lq_virk
 /*.gz
 /Scripts/cache/
