@@ -15,7 +15,7 @@ ls = os.listdir("../data/filtered_data_grouped_23k")
 #data = pd.read_csv("../data/filtered_data_grouped/{}".format(ls[2]))
 train = []
 target = []
-years = 4
+years = 6
 for j in tqdm(range(len(ls)), unit='companies'):
     data = pd.read_csv("../data/filtered_data_grouped_23k/{}".format(ls[j]))
     
