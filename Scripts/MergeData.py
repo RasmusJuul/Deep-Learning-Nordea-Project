@@ -15,19 +15,20 @@ ls = os.listdir("../data/filtered_data_grouped_23k")
 #data = pd.read_csv("../data/filtered_data_grouped/{}".format(ls[2]))
 train = []
 target = []
+years = 4
 for j in tqdm(range(len(ls)), unit='companies'):
     data = pd.read_csv("../data/filtered_data_grouped_23k/{}".format(ls[j]))
     
     data = data.sort_values(by=['Year'])
     
     n = len(data.index)
-    for i in range(n-3):
-        train.append(data.values[i:i+4])
-        target.append(data.values[i+4])
+    for i in range(n-years):
+        train.append(data.values[i:i+years])
+        target.append(data.values[i+years])
 
 
 train_ = np.array(train)
 target_ = np.array(target)
 
-np.save("data_train_4",train_)
-np.save("data_target_4",target_)
+np.save("data_train_{}".format(years),train_)
+np.save("data_target_{}".format(years),target_)
